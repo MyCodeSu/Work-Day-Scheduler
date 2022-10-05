@@ -38,14 +38,16 @@ function timeColours() {
         // removeClassList();
         var timeBlock = document.getElementById("text-" + workDayHours[i]);
 
-        if (i === workDayHours) {
-            timeBlock.classList.add(".present");
+        if (workDayHours[i] === currentTime) {
+           timeBlock.classList.add("present");
+           console.log("present --    "+ timeBlock);
         }
-        if (i > workDayHours) {
-            timeBlock.classList.add(".past");
+        if (workDayHours[i] > currentTime) {
+            timeBlock.classList.add("future");
+            console.log("future --   "+ timeBlock);
         }
-        if (i < workDayHours) {
-            timeBlock.classList.add(".future");
+        if (workDayHours[i] < currentTime) {
+            timeBlock.classList.add("past");
         }
         // persistent data from localStorage
         if (localStorage.getItem(workDayHours[i])) {
