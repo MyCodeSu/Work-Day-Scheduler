@@ -40,11 +40,9 @@ function timeColours() {
 
         if (workDayHours[i] === currentTime) {
            timeBlock.classList.add("present");
-           console.log("present --    "+ timeBlock);
         }
         if (workDayHours[i] > currentTime) {
             timeBlock.classList.add("future");
-            console.log("future --   "+ timeBlock);
         }
         if (workDayHours[i] < currentTime) {
             timeBlock.classList.add("past");
