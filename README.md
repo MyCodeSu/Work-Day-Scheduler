@@ -12,7 +12,7 @@ A web-based day scheduler that allows the user to organize their work day by the
 
 ## Deployed Link
 
-
+https://mycodesu.github.io/Work-Day-Scheduler/
 
 ### License
 
