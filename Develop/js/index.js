@@ -33,9 +33,10 @@ const workDayHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 // function to color code past, present, and future times. 
 
 function timeColours() {
-    var timeBlock = document.querySelectorAll(".col-md-" + [i] + " time-block description");
+
     for (var i = 0; i < 9; i++) {
         // removeClassList();
+        var timeBlock = document.getElementById("text-" + workDayHours[i]);
 
         if (i === workDayHours) {
             timeBlock.classList.add(".present");
@@ -47,23 +48,20 @@ function timeColours() {
             timeBlock.classList.add(".future");
         }
         // persistent data from localStorage
-if(localStorage[i]) {
-    
-}
+        if (localStorage.getItem(workDayHours[i])) {
+            document.getElementById("text-" + workDayHours[i]).innerText =JSON.parse(localStorage.getItem(workDayHours[i]));
+        }
 
     }
 }
 
 timeColours();
 
-
-setInterval(timeColours, 1000); 
-
-$('body').on('click', '.saveBtn', function(e) {
-let clickedTime = this.id;
-// alert(clickedTime);
-let timeBlockText = $("#text-"+clickedTime).val();
-localStorage.setItem(clickedTime, JSON.stringify(timeBlockText));
+$('body').on('click', '.saveBtn', function (e) {
+    let clickedTime = this.id;
+    // alert(clickedTime);
+    let timeBlockText = $("#text-" + clickedTime).val();
+    localStorage.setItem(clickedTime, JSON.stringify(timeBlockText));
 
 
 
